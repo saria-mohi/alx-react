@@ -1,29 +1,51 @@
 :root {
-  --color-brand: #e01d3f;
-}
+	--hred: #e1484c;
+  }
 
-.App-header {
-  display: flex;
-  align-items: center;
-  color: var(--color-brand);
-  font-size: 20px;
-  border-bottom: 3px solid var(--color-brand);
-}
+  body {
+	max-width: 90%;
+	margin: 0 auto;
+  }
 
-.App-header img {
-  width: 200px;
-}
+  div {
+	padding: 2px 8px;
+  }
 
-.App-body {
-  margin: 50px;
-}
+  .App {
+	position: relative;
+	min-height: 100vh;
+  }
 
-.App-footer {
-  border-top: 3px solid var(--color-brand);
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  position: fixed;
-  bottom: 0;
-  font-style: italic;
-}
+  .App-header {
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+	border-bottom: 3px solid var(--hred);
+  }
+  .App-footer p {
+	text-align: center;
+	border-top: 3px solid var(--hred);
+	padding: 17px 0;
+  }
+  .App-footer {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+  }
+
+.App-header h1 {
+	margin: auto auto auto 0;
+	font-weight: bold;
+	color: var(--hred);
+  }
+
+  .App-body p {
+	font-weight: bold;
+	margin: 47px 0 0 31px;
+  }
+  .App-header {
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+	border-bottom: 3px solid var(--hred);
+  }
