@@ -1,16 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
+import './App.css';
 import App from './App';
 import Notifications from './Notifications';
 import reportWebVitals from './reportWebVitals';
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
   <React.StrictMode>
     <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+  </React.StrictMode>  
 );
 
+//Modify task_1/dashboard/src/index.js to render the new element (Notifications) in a div named root-notifications
 ReactDOM.render(
   <React.StrictMode>
     <Notifications />
