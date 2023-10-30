@@ -1,12 +1,12 @@
+/* style the Notifications class: Add a border and some padding around the div */
 .Notifications {
-	padding: 2em;
-	border: 2px dashed red;
+  border: 2px dashed #e0354b;
+  padding: 10px;
 }
-
-ul li[data='default'] {
-	color: blue;
+/* style the notification priorities using their data attribute: set the color of default items to blue, and the color of urgent items to red. */
+.Notifications li[data-priority="default"] {
+  color: blue;
 }
-
-ul li[data='urgent'] {
-	color: red;
+.Notifications li[data-priority="urgent"] {
+  color: red;
 }
