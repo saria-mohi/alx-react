@@ -2,16 +2,27 @@ import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { StyleSheet, css } from 'aphrodite';
 
+const styles = StyleSheet.create({
+  defaultRow: {
+    backgroundColor: '#f5f5f5ab',
+  },
+  headerRow: {
+    backgroundColor: '#deb5b545',
+  },
+  th: {
+    textAlign: 'left',
+    borderTop: '1px solid gray',
+    borderBottom: '1px solid gray',
+  },
+});
+
 const CourseListRow = ({ isHeader, textFirstCell, textSecondCell }) => {
-  const bgColor1 = { backgroundColor: '#f5f5f5ab' };
-  const bgColor2 = { backgroundColor: '#deb5b545' };
-  let bgColor = undefined;
+  const rowStyle = isHeader ? styles.headerRow : styles.defaultRow;
   let content = undefined;
 
   if (isHeader === true) {
-    bgColor = bgColor2;
     if (textSecondCell === null) {
-      content = <th colSpan='2'>{textFirstCell}</th>;
+      content = <th colSpan='2' className={css(styles.th)}>{textFirstCell}</th>;
     } else {
       content = (
         <Fragment>
@@ -20,9 +31,7 @@ const CourseListRow = ({ isHeader, textFirstCell, textSecondCell }) => {
         </Fragment>
       );
     }
-  }
-  if (isHeader === false) {
-    bgColor = bgColor1;
+  } else {
     content = (
       <Fragment>
         <td>{textFirstCell}</td>
@@ -31,7 +40,7 @@ const CourseListRow = ({ isHeader, textFirstCell, textSecondCell }) => {
     );
   }
 
-  return <tr style={bgColor}>{content}</tr>;
+  return <tr className={css(rowStyle)}>{content}</tr>;
 };
 
 CourseListRow.defaultProps = {
@@ -44,13 +53,5 @@ CourseListRow.propTypes = {
   textFirstCell: PropTypes.string.isRequired,
   textSecondCell: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
-
-const styles = StyleSheet.create({
-  th: {
-    textAlign: 'left',
-    borderTop: '1px solid gray',
-    borderBottom: '1px solid gray',
-  },
-});
 
 export default CourseListRow;
