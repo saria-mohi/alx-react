@@ -44,18 +44,20 @@ class App extends Component {
       <Fragment>
         <Notifications listNotifications={listNotifications} />
         <Header />
-        {isLoggedIn ? (
-          <BodySectionWithMarginBottom title='Course list'>
-            <CourseList listCourses={listCourses} />
-          </BodySectionWithMarginBottom>
-        ) : (
-          <BodySectionWithMarginBottom title='Log in to continue'>
-            <Login />
-          </BodySectionWithMarginBottom>
-        )}
-        <BodySection title='News from the School'>
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-        </BodySection>
+        <div className={css(styles.body)}>
+          {isLoggedIn ? (
+            <BodySectionWithMarginBottom title='Course list'>
+              <CourseList listCourses={listCourses} />
+            </BodySectionWithMarginBottom>
+          ) : (
+            <BodySectionWithMarginBottom title='Log in to continue'>
+              <Login />
+            </BodySectionWithMarginBottom>
+          )}
+          <BodySection title='News from the School'>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          </BodySection>
+        </div>
         <div className={css(styles.footer)}>
           <Footer />
         </div>
@@ -75,6 +77,10 @@ App.propTypes = {
 };
 
 const styles = StyleSheet.create({
+  body: {
+    backgroundColor: 'lightgray',
+    padding: '20px',
+  },
   footer: {
     width: '100%',
     position: 'fixed',
@@ -82,8 +88,8 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     fontStyle: 'italic',
     borderTop: 'thick solid #e0344a',
+    backgroundColor: 'white',
   },
-
 });
 
 export default App;
