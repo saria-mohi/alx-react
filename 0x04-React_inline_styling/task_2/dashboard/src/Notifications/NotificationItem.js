@@ -6,29 +6,35 @@ class NotificationItem extends React.PureComponent {
   constructor(props) {
     super(props);
   }
+
   render() {
     const { type, html, value, markAsRead, id } = this.props;
-    const color = css(type === 'urgent' ? styles.urgent : styles.default);
+
+    // Define styles based on the 'type' prop
+    const notificationStyles = type === 'urgent' ? styles.urgent : styles.default;
+
     let li;
 
-    value
-      ? (li = (
-          <li
-            className={color}
-            data-notification-type={type}
-            onClick={() => markAsRead(id)}
-          >
-            {value}
-          </li>
-        ))
-      : (li = (
-          <li
-            className={color}
-            data-notification-type={type}
-            dangerouslySetInnerHTML={html}
-            onClick={() => markAsRead(id)}
-          ></li>
-        ));
+    if (value) {
+      li = (
+        <li
+          className={`${css(notificationStyles)} ${styles.notificationItem}`}
+          data-notification-type={type}
+          onClick={() => markAsRead(id)}
+        >
+          {value}
+        </li>
+      );
+    } else {
+      li = (
+        <li
+          className={`${css(notificationStyles)} ${styles.notificationItem}`}
+          data-notification-type={type}
+          dangerouslySetInnerHTML={html}
+          onClick={() => markAsRead(id)}
+        ></li>
+      );
+    }
 
     return li;
   }
@@ -59,6 +65,10 @@ const styles = StyleSheet.create({
 
   urgent: {
     color: 'red',
+  },
+
+  notificationItem: {
+    cursor: 'pointer',
   },
 });
 
