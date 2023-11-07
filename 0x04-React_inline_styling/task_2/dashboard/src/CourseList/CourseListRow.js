@@ -45,7 +45,12 @@ CourseListRow.propTypes = {
   textSecondCell: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
 
-
-
+const styles = StyleSheet.create({
+  th: {
+    textAlign: 'left',
+    borderTop: '1px solid gray',
+    borderBottom: '1px solid gray',
+  },
+});
 
 export default CourseListRow;
