@@ -46,8 +46,17 @@ CourseListRow.propTypes = {
 };
 
 const styles = StyleSheet.create({
+  row: {
+    backgroundColor: '#deb5b545',
+  },
+  headerBgColor: '#deb5b545',
   th: {
     textAlign: 'left',
+    borderTop: '2px solid gray',
+    borderBottom: '2px solid gray',
+    fontWeight: 'bold',
+  },
+  td: {
     borderTop: '1px solid gray',
     borderBottom: '1px solid gray',
   },
