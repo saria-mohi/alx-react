@@ -83,13 +83,7 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
     borderTop: 'thick solid #e0344a',
   },
-  body: {
-    fontFamily: ['Arial', 'Helvetica', 'sans-serif'],
-    margin: '0',
-    padding: '0',
-    boxSizing: 'border-box',
-    backgroundColor: '#fff',
-  },
+
 });
 
 export default App;
